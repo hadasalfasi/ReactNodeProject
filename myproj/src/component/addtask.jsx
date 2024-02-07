@@ -73,17 +73,17 @@ export default connect(mapStateToProps)(function AddTask2(props) {
                 autoComplete="off"
             >
                 <h1>New Task</h1>
-                <TextField className="standard-basic" label="password" variant="standard" inputRef={Password} />
+                <TextField className="standard-basic" label="password" variant="standard" type="password" inputRef={Password} />
                 <br></br>
-                <TextField id="standard-basic" label="Name" variant="standard" inputRef={Name} />
+                <TextField id="standard-basic" label="Name" variant="standard" type="text" inputRef={Name} />
                 <br></br>
-                <TextField id="standard-basic" label="Description" variant="standard" inputRef={Description} />
+                <TextField id="standard-basic" label="Description" variant="standard" type="text" inputRef={Description} />
                 <br></br>
-                <TextField id="standard-basic" label="TaskId" variant="standard" inputRef={TaskId} />
+                <TextField id="standard-basic" label="TaskId" variant="standard" type="text" inputRef={TaskId} />
                 <br></br>
-                <TextField id="standard-basic" label="Deadline" variant="standard" inputRef={Deadline} />
+                <TextField id="standard-basic" label="Deadline" variant="standard" type="date" inputRef={Deadline} />
                 <br></br>
-                <TextField id="standard-basic" label="TaskTypeId" variant="standard" inputRef={TaskTypeId} />
+                <TextField id="standard-basic" label="TaskTypeId" variant="standard" type="text" inputRef={TaskTypeId} />
                 <br></br>
                 <Stack spacing={2} direction="row">
                     <Button onClick={addtaski} variant="text" sx={{ color: 'black' }}>Add</Button>

@@ -98,10 +98,10 @@ export default connect(mapStateToProps)(function Entry(props) {
 
                 <h1>Connect</h1>
                 <form>
-                    <TextField className="standard-basic" label="First Name" variant="standard" inputRef={FirstName} required />
+                    <TextField className="standard-basic" label="First Name" type="text" variant="standard" inputRef={FirstName} required />
                 </form>
                 <br></br>
-                <TextField className="standard-basic" label="Password" variant="standard" inputRef={Password} required />
+                <TextField className="standard-basic" label="Password" type="password" variant="standard" inputRef={Password} required />
                 <br></br>
                 <Button onClick={connected} variant="text">Connect</Button>
                  <Button onClick={()=>setpicture(!picture)}  variant="text">Picture</Button>

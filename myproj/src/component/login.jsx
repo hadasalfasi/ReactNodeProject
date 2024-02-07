@@ -75,11 +75,11 @@ export default connect(mapStateToProps)(function Login(props) {
                 autoComplete="off"
             >
                 <h1>Log In:</h1>
-                <TextField className="standard-basic" label="first name" variant="standard" inputRef={Firstname} />
-                <TextField className="standard-basic" label="last name" variant="standard" inputRef={Lastname} />
-                <TextField className="standard-basic" label="tel" variant="standard" inputRef={Tel} />
-                <TextField className="standard-basic" label="e-mail" variant="standard" inputRef={Email} />
-                <TextField className="standard-basic" label="password" variant="standard" inputRef={Password} />
+                <TextField className="standard-basic" label="first name" variant="standard" type="text" inputRef={Firstname}/>
+                <TextField className="standard-basic" label="last name" variant="standard" type="text" inputRef={Lastname} />
+                <TextField className="standard-basic" label="tel" variant="standard" type="tel" inputRef={Tel} />
+                <TextField className="standard-basic" label="e-mail" variant="standard" type="email" inputRef={Email} />
+                <TextField className="standard-basic" label="password" variant="standard"  type="password"inputRef={Password} />
                 <br></br>
 
                 <Button onClick={login} variant="text">Add</Button>
