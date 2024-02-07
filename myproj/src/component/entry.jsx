@@ -28,9 +28,7 @@ export default connect(mapStateToProps)(function Entry(props) {
     let FirstName = useRef('');
     let Password = useRef('');
     const [flag1, setFlag] = useState(false);
-    // useEffect(function () {
-    //     console.log("usersList", usersList)
-    // }, [, usersList]);    
+
     let flag = 0;
     // const updateUsers = async () => {
     //     try {
@@ -44,34 +42,40 @@ export default connect(mapStateToProps)(function Entry(props) {
     //     }
     // }
     const connected = async () => {
-        try {
-            const reaspons = await axios.get('http://localhost:5000/users')
-            console.log(reaspons.data);
-            if (reaspons.status == 200) {
-                console.log("before");
-                console.log(userslist);
-                dispatch(getUserList(reaspons.data));
-                console.log("after");
-                console.log(userslist);
-                
-                for (var i in reaspons.data) {
-                    if (reaspons.data[i].firstName == FirstName.current.value&&reaspons.data[i].password == Password.current.value) {
-                        alert(`wellcome ${FirstName.current.value}`);
-                      
-                        newNavigate('/YourtaskList', { state: { userCurent: Password.current.value } });
-                        flag = 1;
+        if (FirstName.current.value != "" && Password.current.value != "") {
+            try {
+                const reaspons = await axios.get('http://localhost:5000/users')
+                console.log(reaspons.data);
+                if (reaspons.status == 200) {
+                    console.log("before");
+                    console.log(userslist);
+                    dispatch(getUserList(reaspons.data));
+                    console.log("after");
+                    console.log(userslist);
+
+                    for (var i in reaspons.data) {
+                        if (reaspons.data[i].firstName == FirstName.current.value && reaspons.data[i].password == Password.current.value) {
+                            alert(`wellcome ${FirstName.current.value}`);
+
+                            newNavigate('/YourtaskList', { state: { userCurent: Password.current.value } });
+                            flag = 1;
+                        }
+                    }
+                    if (flag == 0) {
+                        alert(`You not exsist`);
+                        newNavigate('/Login');
                     }
                 }
-                if (flag == 0) {
-                    alert(`You not exsist`);
-                    newNavigate('/Login');
-                }
+            }
+            catch (error) {
+                console.log(error);
+
             }
         }
-        catch (error) {
-            console.log(error);
-      
+        else{
+            alert("All fields are required")
         }
+
     }
     return (
         <>
@@ -90,10 +94,13 @@ export default connect(mapStateToProps)(function Entry(props) {
                 noValidate
                 autoComplete="off"
             >
+
                 <h1>Connect</h1>
-                <TextField className="standard-basic" label="First Name" variant="standard" inputRef={FirstName} />
+                <form>
+                    <TextField className="standard-basic" label="First Name" variant="standard" inputRef={FirstName} required />
+                </form>
                 <br></br>
-                <TextField className="standard-basic" label="Password" variant="standard" inputRef={Password} />
+                <TextField className="standard-basic" label="Password" variant="standard" inputRef={Password} required />
                 <br></br>
                 {/* <Stack spacing={2} direction="row"> */}
                 <Button onClick={connected} variant="text">Connect</Button>

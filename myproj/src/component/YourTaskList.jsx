@@ -37,12 +37,14 @@ export default connect(mapStateToProps)(function YourtaskList(props) {
         newnevigate('/addTask');
     })
     const getYourTask = async () => {
-        debugger
+    
         try {
             
             // alert("in get your task")
             const reaspons = await axios.get(`http://localhost:5000/task/${userCurent}`);
-            
+            console.log(reaspons);
+            console.log(userCurent);
+         
             if (reaspons.status == 200) {
 
                 dispatch(getTaskList(reaspons.data));
@@ -63,6 +65,7 @@ export default connect(mapStateToProps)(function YourtaskList(props) {
                 // })
                 taskList.map((task)=>{
                     return(
+                        
                         <><Task taskcurent={task}></Task></>
                     )
                 })

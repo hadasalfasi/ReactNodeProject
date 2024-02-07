@@ -30,6 +30,8 @@ exports.getTasksbyPassword = async (req, res) => {
 
 exports.getAllTask = async (req, res) => {
     const task = await Tasks.find();
+    console.log(("ggggggggggggggggg"));
+    console.log(task);
     res.json(task);
 }
 

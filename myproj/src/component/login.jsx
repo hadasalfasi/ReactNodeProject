@@ -31,31 +31,36 @@ export default connect(mapStateToProps)(function Login(props) {
     // }        
     // ,[])
     const login = async () => {
-        alert("firsttttttttttt");
-        try {
-            debugger
-            const creatNewUser = {
-                firstName: Firstname.current.value,
-                lastName: Lastname.current.value,
-                tel: Tel.current.value,
-                email:Email.current.value,
-                password: Password.current.value,
-            };
-            alert("55555555555");
+        if (Firstname.current.value != "" &&Lastname.current.value != "" &&Tel.current.value != "" && Email.current.value != "" && Password.current.value != "")
+        {
+            try {
+               
+                const creatNewUser = {
+                    firstName: Firstname.current.value,
+                    lastName: Lastname.current.value,
+                    tel: Tel.current.value,
+                    email: Email.current.value,
+                    password: Password.current.value,
+                };
+                alert("55555555555");
 
-            const response = await axios.post('http://localhost:5000/users/',creatNewUser);
+                const response = await axios.post('http://localhost:5000/users/', creatNewUser);
 
-            alert("secondddd");
-            if(response.status==200){
-                dispatch(addusser(creatNewUser))
-                alert(`wellcome ${Firstname.current.value}  ${Lastname.current.value}`);
-                newNavigate('/YourtaskList', { state: { userCurent: Password.current.value } });
+                alert("secondddd");
+                if (response.status == 200) {
+                    dispatch(addusser(creatNewUser))
+                    alert(`wellcome ${Firstname.current.value}  ${Lastname.current.value}`);
+                    newNavigate('/YourtaskList', { state: { userCurent: Password.current.value } });
+                }
+            }
+            catch (error) {
+                console.error(error);
             }
         }
-        catch (error) {
-            console.error(error);
+        else{
+            alert("you have to all")
         }
-     
+
     };
     return (
         <>

@@ -1,11 +1,15 @@
 .App {
   text-align: center;
+ 
+
+}
+body{
   background-image:url("רקע.jpg");
   /* background-image:url("רקעעעע.jpg"); */
   background-size: cover;
-  height: 801px;
+  /* height: 801px; */
+  background-repeat: no-repeat;
 }
-
 
 .App-logo {
   height: 40vmin;
