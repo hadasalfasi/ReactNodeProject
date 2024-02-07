@@ -68,7 +68,6 @@ export default connect(mapStateToProps)(function AddTask2(props) {
                     flexDirection: 'column',
                     '& .MuiTextField-root': { width: '25ch' },
                     alignItems: 'center',
-                    // '& > :not(style)': { m: 1, width: '25ch', color: 'black', fontFamily: '' },
                 }}
                 noValidate
                 autoComplete="off"
@@ -88,7 +87,6 @@ export default connect(mapStateToProps)(function AddTask2(props) {
                 <br></br>
                 <Stack spacing={2} direction="row">
                     <Button onClick={addtaski} variant="text" sx={{ color: 'black' }}>Add</Button>
-                    {/* <Button variant="outlined" onClick={} color="info"></Button> */}
                 </Stack>
             </Box>
         </>

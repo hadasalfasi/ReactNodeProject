@@ -37,9 +37,7 @@ exports.getAllTask = async (req, res) => {
 
 
 exports.addtask = async (req, res) => {
-    // const { id,taskid, name, description, deadline } = req.body;
     const newTask = await Tasks.create(req.body);
-    // console.log(newTask);
     res.json(newTask);
 
 };

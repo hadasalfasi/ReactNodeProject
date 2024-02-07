@@ -26,10 +26,6 @@ export default connect(mapStateToProps)(function Login(props) {
         console.log("userslist", userslist)
     }, [, userslist]);
 
-    // useEffect(()=>{
-    //     login();
-    // }        
-    // ,[])
     const login = async () => {
         if (Firstname.current.value != "" &&Lastname.current.value != "" &&Tel.current.value != "" && Email.current.value != "" && Password.current.value != "")
         {

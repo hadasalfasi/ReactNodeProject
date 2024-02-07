@@ -33,18 +33,12 @@ export default connect(mapStateToProps)(function YourtaskList(props) {
     const location = useLocation();
     const userCurent = location.state.userCurent;
     const setflagi = (() => {
-        // setFlag(true);
         newnevigate('/addTask');
     })
     const getYourTask = async () => {
     
         try {
-            
-            // alert("in get your task")
             const reaspons = await axios.get(`http://localhost:5000/task/${userCurent}`);
-            console.log(reaspons);
-            console.log(userCurent);
-         
             if (reaspons.status == 200) {
 
                 dispatch(getTaskList(reaspons.data));
@@ -60,9 +54,6 @@ export default connect(mapStateToProps)(function YourtaskList(props) {
     return (
         <>
             {
-                // taskList.map((task) => {
-                //     <Task taskcurent={task}></Task>
-                // })
                 taskList.map((task)=>{
                     return(
                         
@@ -85,9 +76,6 @@ export default connect(mapStateToProps)(function YourtaskList(props) {
             >
 
                 <br></br>
-
-                {/* <Button variant="text">Edit</Button>
-                <Button variant="text">Remoove</Button> */}
                 <Button onClick={setflagi} variant="text">TO ADD NEW TASK</Button>
             </Box>
 

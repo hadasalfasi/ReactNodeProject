@@ -4,14 +4,8 @@ import { connect } from "react-redux";
 import { delettask } from "../redux/action";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-
-
-
-
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
-// import SendIcon from '@mui/icons-material/Send';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
@@ -50,7 +44,6 @@ export default connect(mapStateToProps)(function Task(props) {
         try{
             const reaspons=await axios.put(`http://localhost:5000/task${taskcurent.taskId}`);
             if (reaspons.status == 200) {
-                // dispatch(update(taskcurent,taskcurent.description));
                 alert("its update succsesfully...")
             }
         }
@@ -58,12 +51,7 @@ export default connect(mapStateToProps)(function Task(props) {
 
         }
     }
-    // const getTaskByUser = async () => {
-
-    // }
-    // useEffect(()=>{
-    // getTaskByUser()
-    // },[])
+ 
     return (
 
         <>
